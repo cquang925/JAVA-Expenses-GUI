@@ -1,3 +1,6 @@
+// Mainframe is the controller. Communicates between all classes. 
+// Classes will send information to Mainframe and Mainframe will decide what to do with information
+
 package com.company;
 
 import javax.swing.*;
@@ -22,6 +25,18 @@ public class MainFrame extends JFrame {
             @Override
             public void textEmitted(String text) {
                 textPanel.appendText(text);
+            }
+        });
+        
+        entryForm.setFormListener(new EntryFormListener() {
+            public void formEventOccurred(EventEntryForm ev) {
+                String store = ev.getStore();
+                String address = ev.getAddress();
+                String date = ev.getDate();
+                String amount = ev.getAmount();
+
+                textPanel.appendText("On " + date + " you went to " + store + " located at " + address + " and spent $"
+                        + amount + ". Spend less money!");
             }
         });
 
