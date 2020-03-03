@@ -21,6 +21,8 @@ public class Toolbar extends JPanel implements ActionListener {
         save.addActionListener(this);
 
         setLayout((new FlowLayout(FlowLayout.LEFT)));
+        Border innerBorder = BorderFactory.createEtchedBorder();
+        setBorder(BorderFactory.createCompoundBorder(innerBorder, innerBorder));
 
         add(addEntry);
         add(viewPrevious);
@@ -37,14 +39,17 @@ public class Toolbar extends JPanel implements ActionListener {
 
         if (clicked == addEntry){
             if(textListener != null){
-                textListener.textEmitted("Hello\n");
+                textListener.textEmitted("Set EntryForm to Visable\n");
             }
-            //textPanel.appendText("Hello\n");
         }
         else if (clicked == viewPrevious){
             if(textListener != null){
-                textListener.textEmitted("Goodbye\n");
-            //textPanel.appendText("Goodbye\n");
+                textListener.textEmitted("Connect to spreadsheet and display\n");
+            }
+        }
+        else if (clicked == save){
+            if(textListener != null){
+                textListener.textEmitted("Save info to spreadsheet\n");
             }
         }
     }
