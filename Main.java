@@ -1,3 +1,4 @@
+// Main class kicks off the program
 package com.company;
 
 import javax.swing.*;
